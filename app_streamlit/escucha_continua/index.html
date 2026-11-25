@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<!-- Componente de Streamlit: escucha continua con el reconocimiento de voz de Chrome.
+     Cada frase terminada se manda a Python (app.py), que la interpreta con voz.py y la envía al robot. -->
+<style>
+  body { margin: 0; font-family: "Source Sans Pro", sans-serif; color: #fafafa; background: transparent; }
+  button { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #555; font-size: 16px;
+           cursor: pointer; background: #262730; color: #fafafa; }
+  button.on { background: #2ca02c; border-color: #2ca02c; }
+  #estado { margin-top: 6px; font-size: 14px; opacity: .8; }
+  #txt { margin-top: 4px; font-size: 16px; min-height: 22px; }
+  .punto { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #888; margin-right: 6px; }
+  .on .punto, .escuchando { background: #ff4b4b; animation: lat 1s infinite; }
+  @keyframes lat { 50% { opacity: .3; } }
+</style>
+</head>
+<body>
+<button id="b"><span class="punto" id="p"></span><span id="bt">🎙 Activar escucha continua</span></button>
+<div id="estado">Apagada</div>
+<div id="txt"></div>
+<script>
+  function msg(type, data) {
+    window.parent.postMessage(Object.assign({ isStreamlitMessage: true, type: type }, data || {}), "*");
+  }
+  function altura() { msg("streamlit:setFrameHeight", { height: document.body.scrollHeight + 4 }); }
+  window.addEventListener("message", function (e) {
+    if (e.data && e.data.type === "streamlit:render") altura();
+  });
+  msg("streamlit:componentReady", { apiVersion: 1 });
+
+  var b = document.getElementById("b"), bt = document.getElementById("bt"), p = document.getElementById("p");
+  var est = document.getElementById("estado"), txt = document.getElementById("txt");
+  var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  var rec = null, activa = false;
+
+  function ui(texto) {
+    b.className = activa ? "on" : "";
+    p.className = activa ? "punto escuchando" : "punto";
+    bt.textContent = activa ? "⏹ Detener escucha" : "🎙 Activar escucha continua";
+    est.textContent = texto || (activa ? "Escuchando… di la orden (adelante, para, modo automático…)" : "Apagada");
+    altura();
+  }
+
+  if (!SR) {
+    b.disabled = true; ui("Este navegador no tiene reconocimiento de voz: usa Google Chrome en el PC.");
+  } else if (!window.isSecureContext) {
+    b.disabled = true; ui("Chrome bloquea el micrófono aquí: abre la app como http://localhost:8501 en el PC.");
+  } else {
+    rec = new SR();
+    rec.lang = "es-CO";
+    rec.continuous = true;        // no se detiene después de cada frase
+    rec.interimResults = true;    // muestra lo que va oyendo
+    rec.onresult = function (ev) {
+      for (var i = ev.resultIndex; i < ev.results.length; i++) {
+        var r = ev.results[i], t = r[0].transcript.trim();
+        if (!t) continue;
+        if (r.isFinal) {
+          txt.textContent = "✔ " + t;
+          msg("streamlit:setComponentValue", { value: { texto: t, t: Date.now() }, dataType: "json" });
+        } else {
+          txt.textContent = "… " + t;
+        }
+      }
+      altura();
+    };
+    rec.onerror = function (ev) {
+      if (ev.error === "not-allowed" || ev.error === "service-not-allowed") {
+        activa = false; ui("Permiso de micrófono denegado: pulsa el candado de la barra de direcciones y permítelo.");
+      } else if (ev.error === "network") {
+        ui("Sin internet: el reconocimiento de voz de Chrome necesita conexión.");
+      }
+    };
+    rec.onend = function () {     // Chrome corta tras silencios largos: se vuelve a arrancar solo
+      if (activa) setTimeout(function () { try { rec.start(); } catch (e) {} }, 300);
+      else ui();
+    };
+    b.onclick = function () {
+      activa = !activa;
+      if (activa) { try { rec.start(); } catch (e) {} } else { rec.stop(); }
+      ui();
+    };
+    ui();
+  }
+</script>
+</body>
+</html>

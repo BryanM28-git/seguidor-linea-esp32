@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+# calibraciones locales del robot
+calib.json
+# no subir claves reales del WiFi: usa config.py con valores de ejemplo
+secrets.py

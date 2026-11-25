@@ -1,0 +1,107 @@
+{
+ "piezas": {
+  "chasis": {
+   "cerrada": true,
+   "triangulos": 432908,
+   "vol_cm3": 96.4,
+   "masa_g": 65.7,
+   "cama_mm": [
+    207.0,
+    102.0,
+    43.2
+   ]
+  },
+  "carcasa": {
+   "cerrada": true,
+   "triangulos": 482540,
+   "vol_cm3": 83.7,
+   "masa_g": 57.1,
+   "cama_mm": [
+    207.0,
+    92.0,
+    40.7
+   ]
+  },
+  "calza_rueda": {
+   "cerrada": true,
+   "triangulos": 24748,
+   "vol_cm3": 9.4,
+   "masa_g": 6.4,
+   "cama_mm": [
+    40.0,
+    34.0,
+    8.2
+   ]
+  },
+  "separadores": {
+   "cerrada": true,
+   "triangulos": 12672,
+   "vol_cm3": 1.2,
+   "masa_g": 0.8,
+   "cama_mm": [
+    42.4,
+    18.4,
+    6.0
+   ]
+  }
+ },
+ "masa_total_g": 494.3,
+ "masa_pla_g": 130.1,
+ "cg_mm": [
+  43.6,
+  -0.1,
+  41.6
+ ],
+ "interferencias": [
+  [
+   "Motorreductor TT",
+   0.0
+  ],
+  [
+   "Motorreductor TT",
+   0.0
+  ],
+  [
+   "Portapilas 2x18650",
+   0.0
+  ],
+  [
+   "Regleta QRE1113 x8",
+   0.0
+  ],
+  [
+   "TCS3200 PCB",
+   0.0
+  ],
+  [
+   "TCS3200 LEDs",
+   0.0
+  ],
+  [
+   "L298N",
+   0.0
+  ],
+  [
+   "ESP32 + expansión",
+   0.0
+  ],
+  [
+   "HC-SR05",
+   0.0
+  ],
+  [
+   "Rodachín (platina)",
+   0.0
+  ],
+  [
+   "Rodachín (rueda)",
+   0.0
+  ]
+ ],
+ "interf_ruedas": 0.0,
+ "barrido_rodachin": 0.0,
+ "qre_x": 105.94999999999999,
+ "caster_x": 142.0,
+ "caster_h": 34.0,
+ "calza_mm": 8.2
+}

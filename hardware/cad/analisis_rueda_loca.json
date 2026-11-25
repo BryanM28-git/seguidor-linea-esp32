@@ -1,0 +1,104 @@
+{
+ "A": {
+  "config": "A · rueda loca atrás",
+  "masa_g": 500,
+  "cg_x": -12.4,
+  "cg_z": 41.7,
+  "x_rueda_loca": -95.0,
+  "carga_ruedas_pct": 88.0,
+  "a_traccion": 4.71,
+  "a_motores": 9.01,
+  "a_disponible": 4.71,
+  "a_vuelco_long": 2.92,
+  "modo_vuelco": "clavada al frenar (sensores bajan)",
+  "margen_vuelco": 0.35,
+  "a_frenado": 8.43,
+  "k_rueda_loca": -1.03,
+  "k_motrices": 2.03,
+  "bache_que_toca_piso_mm": 2.9,
+  "bache_pierde_lectura_mm": 3.2,
+  "a_lat_vuelco": 11.29,
+  "a_lat_agarre": 6.04,
+  "limite_curva": "sobreviraje (cola sale, trompo)"
+ },
+ "B": {
+  "config": "B · rueda loca adelante",
+  "masa_g": 494,
+  "cg_x": 43.6,
+  "cg_z": 41.6,
+  "x_rueda_loca": 142.0,
+  "carga_ruedas_pct": 67.5,
+  "a_traccion": 5.92,
+  "a_motores": 9.12,
+  "a_disponible": 5.92,
+  "a_vuelco_long": 10.28,
+  "modo_vuelco": "caballito al acelerar (sensores suben)",
+  "margen_vuelco": 1.74,
+  "a_frenado": 3.81,
+  "k_rueda_loca": 0.79,
+  "k_motrices": 0.21,
+  "bache_que_toca_piso_mm": null,
+  "bache_pierde_lectura_mm": 8.2,
+  "a_lat_vuelco": 9.22,
+  "a_lat_agarre": 4.63,
+  "limite_curva": "subviraje (sale de nariz, estable)"
+ },
+ "rigidez_B_sobre_A": 18.0,
+ "F_motores_N": 4.51,
+ "mu": 0.7,
+ "curvas": [
+  {
+   "R": 100,
+   "r_eje": null
+  },
+  {
+   "R": 120,
+   "r_eje": 56.3
+  },
+  {
+   "R": 150,
+   "r_eje": 106.2
+  },
+  {
+   "R": 200,
+   "r_eje": 169.6
+  },
+  {
+   "R": 300,
+   "r_eje": 280.7
+  }
+ ],
+ "compat_prev": {
+  "P1": {
+   "cara": 20.1,
+   "calza": 0,
+   "h_qre": -10.6,
+   "ok": false
+  },
+  "P2": {
+   "cara": 42.2,
+   "calza": 8.2,
+   "h_qre": 3.0,
+   "ok": true
+  },
+  "P3": {
+   "cara": 20.1,
+   "calza": 0,
+   "h_qre": -10.6,
+   "ok": false
+  },
+  "P4": {
+   "cara": 15.0,
+   "calza": 0,
+   "h_qre": -15.4,
+   "ok": false
+  },
+  "P5": {
+   "cara": 20.1,
+   "calza": 0,
+   "h_qre": -14.2,
+   "ok": false
+  }
+ },
+ "d_mm": 105.9
+}
