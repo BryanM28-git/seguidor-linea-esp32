@@ -21,29 +21,12 @@
 
 ## 🎥 Video de demostración
 
-<!--
-  ┌──────────────────────── CÓMO PONER EL VIDEO AQUÍ ────────────────────────┐
-  │ Opción A (recomendada, se reproduce dentro de GitHub):                   │
-  │   1. En GitHub abre este README.md y pulsa el lápiz ✏️ (Edit).           │
-  │   2. Arrastra tu archivo .mp4 o .mov (máx. 100 MB) a la línea marcada    │
-  │      con «PEGA EL VIDEO AQUÍ». GitHub sube el video y escribe un enlace  │
-  │      https://github.com/user-attachments/assets/....                     │
-  │   3. Borra la tabla «Video próximamente» de abajo y pulsa Commit.       │
-  │                                                                          │
-  │ Opción B (YouTube): reemplaza la tabla por                               │
-  │   [![Video](https://img.youtube.com/vi/ID_DEL_VIDEO/maxresdefault.jpg)](https://youtu.be/ID_DEL_VIDEO)
-  └──────────────────────────────────────────────────────────────────────────┘
--->
-
-<!-- ▼▼▼ PEGA EL VIDEO AQUÍ ▼▼▼ -->
-
-<table align="center"><tr><td align="center">
-  <img src="docs/img/fotos.jpg" width="420" alt="Video próximamente"><br>
-  <b>▶ Video próximamente</b><br>
-  <sub>Demostración en pista: seguimiento, colores, obstáculos y control por voz.</sub>
-</td></tr></table>
-
-<!-- ▲▲▲ PEGA EL VIDEO AQUÍ ▲▲▲ -->
+<p align="center">
+  <a href="https://youtube.com/shorts/wufHXBLQhIQ" title="Ver el video en YouTube">
+    <img src="https://img.youtube.com/vi/wufHXBLQhIQ/hqdefault.jpg" width="480" alt="Video de demostración del robot seguidor de línea">
+  </a><br>
+  <a href="https://youtube.com/shorts/wufHXBLQhIQ"><img src="https://img.shields.io/badge/Ver%20en%20YouTube-FF0000?logo=youtube&logoColor=white&style=for-the-badge" alt="Ver en YouTube"></a>
+</p>
 
 ---
 
